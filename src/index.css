@@ -1,0 +1,605 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+.App{
+  width: 100%;
+  min-height: 100vh;
+  margin: auto;
+}
+/*-----------------INICIO-------------------*/
+.inicio{
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 3.3rem ;
+  
+}
+.inicio .to{
+  padding-top: 5rem;
+}
+.inicio h1{
+  font-size: 3rem;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.inicio img{
+  width: 98%;
+  margin: 2% 1%;
+  padding-top: 0rem ;
+}
+
+/* ----------------- HEADER -------------------*/
+header{
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  background-color: black;
+}
+a{      
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a:hover{
+  color: crimson;
+}
+.menu{
+  display: none;
+}
+li{
+  list-style: none;
+}
+
+header ul{
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+header ul li{
+  padding: 1rem 2rem;
+}
+header ul li a{
+  font-weight: bold;
+  font-size: 0.6rem;
+}
+.cart{
+  position: relative;
+  cursor: pointer;
+}
+.cart ion-icon{
+  width: 25px;
+  height: 25px;
+  color: white;
+}
+.cart span{
+  position: absolute;
+  top: -0.5rem;
+  right: -1.2rem;
+  width: 1.5rem;
+  height: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 0rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50%;
+  background-color: crimson;
+}
+
+
+/*-------------Productos----------------*/
+
+.title{
+  font-size: 1.6rem;
+  padding: 6rem 0rem 0 2rem;
+  color: #493592;
+}
+
+.Playstation{
+  padding: 5rem 1rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 3rem 2rem;
+  box-sizing: border-box ;
+}
+
+.playstation{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 10px 10px 2px rgba(0, 0, 0, 0.1);
+  border: 6px solid transparent;
+  border-radius: 5px;
+}
+
+.playstation:hover{
+  border: 5px solid white;
+}
+
+.playstation_img img{
+  width: 160px;
+  height: 190px;
+}
+
+.producto_footer{
+  padding: 1rem;
+}
+
+.producto_footer h1{
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1a202c;
+  font-family: Helvetica, sans-serif;
+}
+
+.producto_footer p{
+  font-weight: 700;
+  color: rgba(0, 0, 0, .555);
+  text-transform: uppercase;
+  font-size: 0.5rem;
+}
+
+.producto_footer .price{
+font-size: 1.5rem;
+color: #1a202c;
+}
+
+.playstation .buttom{
+  width: 100%;
+  height: 2rem;
+  width: 20rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1rem;
+  margin: 1rem;
+}
+
+.buttomAdd .btn{
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #923835;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.buttomAdd{
+  background-color: #923835;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  margin-left: 0rem;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.buttomVista{
+  background-color:#493592;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  margin-left: 0rem;
+  margin-right: 0;
+  border-radius: 5px;
+  padding: 1;
+}
+
+.buttom div a{
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.buttom div a:hover{
+  color: white;
+}
+
+/*-----------------CARRITO -----------*/
+.carritos{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 300ms ease-in-out;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 2;
+  padding-bottom: 5rem;
+  visibility: hidden;
+}
+.carrito{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(.5);
+  width: 60%;
+  height: 80%;
+  padding: 1.6rem;
+  border-radius: 8px;
+  overflow-x: scroll;
+  transition: all 300ms ease-in-out;
+  background-color: white;
+  opacity: 0;
+  visibility: hidden;
+}
+.carrito h2{
+  text-align: center;
+  font-size: 2rem;
+}
+.carritos.show{
+  visibility: visible;
+}
+
+.carrito.show{
+  transform: translate(-50%, -50%) scale(1.1);
+  opacity: 1;
+  visibility: visible;
+}
+.carrito_close ion-icon{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transform: all 300ms ease-in-out;
+  margin: 0.5rem 0 0 93%;
+}
+.carrito_close ion-icon:hover{
+  fill: crimson;
+}
+.carrito_center{
+  width: 90%;
+  margin: 0 auto;
+}
+.carrito_item{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 2fr;
+  width: 80%;
+  margin: 2rem auto;
+  box-shadow: 0 1px 10px #08a05c;
+  border-radius: 5px;
+}
+.carrito_item img{
+  width: 6rem;
+  margin-top: 1rem;
+  margin-left: 6rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+.carrito_item h3{
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: Helvetica, sans-serif;
+}
+.carrito_item .price{
+  color: #1a202c;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-align: start;
+}
+.carrito_item ion-icon{
+fill: #08a05c;
+width: 30px;
+height: 30px;
+cursor: pointer;
+margin-top: 1.5rem;
+}
+.carrito_item .cantidad{
+  font-size: 1.5rem;
+  margin: -0.5rem 0 -1.5rem 0;
+  font-weight: bold;
+}
+.carrito_item .remove_item ion-icon{
+  width: 40px;
+  height: 120px;
+  color: crimson;
+  margin-top: 0rem;
+}
+.carrito_footer{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.carrito_footer h3{
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.carrito_footer .btn{
+  display: inline-block;
+  border-radius: 10%;
+  padding: .3rem 1rem;
+  font-size: 0.8rem;
+  background-color: #37f19e;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.carrito_footer .btn:hover{
+  background-color: #0f5c39;
+  color: white;
+}
+/*--------------DETALLES --------------*/
+.detalles{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+}
+.text{
+  display: column;
+  padding: 10rem 1rem 0 1rem;
+}
+.detalles h2{
+  font-size: 1.5rem;
+  font-family:Helvetica, sans-serif;
+  color: #1a202c;
+}
+.detalles .price{
+  font-size: 1.3rem;
+  width: 100%;
+  font-weight: bolder;
+}
+.detalles button{
+  max-width: 650px;
+  margin: 1rem 1rem 1rem 0rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: 0;
+  background-color: #923835;
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.detalles img{
+  padding: 12rem 1rem 0 5.3rem;
+  margin-top: -5rem;
+  margin-right: 1rem;
+  width: 20%;
+}
+
+.detalles .description{
+  font-size: 1rem;
+  max-width: 1300px;
+  width: 100%;
+  letter-spacing: 1px;
+  color: #5f5d5d;
+  margin: 0 auto;
+  font-weight: 500;
+}
+.detalles .description b{
+  font-size: 1rem;
+  color: #30333a;
+}
+
+
+/* ------------- RELACIONADO --------- */
+.relacionados{
+  text-align: center;
+  background-color: #2e2e2e;
+  color: white;
+  max-width: 350px;
+  width: 100%;
+  margin: 5rem auto -2rem auto;
+  padding: .5rem 1rem;
+  font-size: 18px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: Helvetica, sans-serif
+  ;
+}
+/*---------------Footer----------------------*/
+footer{
+  background-color: black;
+  padding-top: 2%;
+  padding-left: 8%;
+  padding-bottom: 3%;
+  padding-right: -3%;
+}
+.Redes{
+  display: flex;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.redes{
+  display: column;
+  
+}
+.Redes .enlaces{
+  display: column;
+}
+.Redes .t{
+  font-size: 130%;
+}
+.Redes .d{
+  font-size: 90%;
+  padding-top: 10%;
+}
+.Redes .y{
+  font-size: 90%;
+  padding-top: 3%;
+}
+.mapa img{
+  width: 80%;
+  height: 80%;
+  padding-top: 3%;
+  padding-bottom: 0;
+  padding-left: 0%;
+}
+.redes ion-icon{
+  width: 50px;
+  height: 50px;
+  padding-top: 6%;
+}
+
+/*-------------AcercaDe-------------------*/
+
+.container {
+  padding: 5%;
+  padding-top: 0;
+}
+
+.text {
+  width: 70%; 
+  text-align: justify;
+  display: block;
+  margin: 0 auto;
+}
+
+.text .m{
+  font-size: 200%;
+  text-align: center;
+  padding: 2%;
+}
+.text .n{
+  font-size: 110%;
+  padding-bottom: 1.5%;
+
+}
+.container img {
+  width: 70%; 
+  display: block;
+  margin: 0 auto;
+  padding: 5%;
+  
+}
+/*-------------Terminos-------------------*/
+.Terminos {
+  padding: 5%;
+  padding-top: 5%;
+}
+
+.terminos {
+  width: 70%; 
+  text-align: justify;
+  display: block;
+  margin: 0 auto;
+}
+
+.terminos .v{
+  font-size: 200%;
+  text-align: center;
+  padding: 5%;
+}
+.terminos .c{
+  font-size: 110%;
+  padding-bottom: 3%;
+}
+.terminos .z{
+  font-size: 130%;
+  padding-bottom: 1%;
+}
+.terminos .g{
+  text-align: center;
+  padding: 4%;
+}
+
+/* -------------MEDIA -------------*/
+@media only screen and (max-width: 1000px){
+  .carrito_item{
+  width: 92%;
+  }
+}
+@media only screen and (max-width: 888px){ 
+  .detalles input{
+  margin-top: -6rem;
+  }
+}
+@media only screen and (max-width: 700px){
+  .carrito{
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  }
+  .carrito_item h3{
+  font-size: 1.3rem;
+  }
+  .detalles h2{
+  font-size: 3rem;
+  }
+  
+}
+@media only screen and (max-width: 663px){ 
+  .detalles input{
+  margin-top: -8rem;
+  }
+}
+
+@media only screen and (max-width: 570px){
+  header ul{
+  display: none;
+  }
+  .productos{
+  padding: 0;
+  }
+  .detalles h2{
+  font-size: 2.5rem;
+  }
+  .detalles input{
+  margin-top: 0rem ;
+  }
+  .detalles img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  margin: -1rem auto;
+  }
+}
+@media only screen and (max-width: 450px){
+  .carrito_item h3{
+  font-size: .8rem;
+  }
+  .carrito_item .remove_item{
+  width: 20px;
+  height: 20px;
+  }
+  .carrito_item ion-icon{
+  width: 25px;
+  height: 25px;
+  }
+  .detalles h2{
+  font-size:2rem;
+  padding-top: 10rem ;
+  }
+  .detalles .grid > .nuevo, .tamano{
+  padding: 1rem 1rem;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  }
+  .detalles .grid .tamano select{
+  font-size: 1.2rem;
+  }
+  .detalles img{
+  width: 300px;
+  width: 100%;
+  }
+  .detalles{
+  padding: 1rem 0;
+  }
+}
